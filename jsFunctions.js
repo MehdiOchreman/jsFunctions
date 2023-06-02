@@ -210,3 +210,61 @@ function moreDotLessDash(str) {
         return false
     }
 }
+
+function hasThreeVowels(str) {
+    count = 0
+    countArr = []
+
+    vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'O', 'o', 'u', 'U']
+    for (i = 0; i < str.length; i++) {
+
+        if (vowels.includes(str[i])) {
+            countArr.push(str[i])
+        }
+    }
+    let countSet = [...new Set(countArr)]
+    count = countSet.length
+    if (count >= 3) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+function lastIndex(str, char) {
+    for (i = str.length; i > 0; i--) {
+        if (str[i] == char) {
+            return i
+        }
+    }
+}
+
+function doubleLetterCount(string) {
+
+    var count = 0
+    for (i = 0; i < string.length - 1; i++) {
+        let i2 = i + 1
+        if (string[i] == string[i2]) {
+            count += 1
+        }
+        else {
+            count += 0
+        }
+    }
+    return count
+}
+
+function caesarCipher(string, num) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var nStr = []
+    for (i = 0; i < string.length; i++) {
+        indexInAlphabet = alphabet.indexOf(string[i])
+        newIndex = indexInAlphabet + num
+        if (newIndex > 26) {
+            newIndex = newIndex - 26
+        }
+        nStr.push(alphabet[newIndex])
+    }
+    return nStr.join('')
+}
